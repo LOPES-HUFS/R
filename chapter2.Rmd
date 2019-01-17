@@ -1,0 +1,82 @@
+---
+title: "2R Notebook"
+output: html_notebook
+---
+
+## 중심적 경향 측정하기
+
+평균(average)은 많은 수들로 인해 일정한 패턴이나 흐름을 파악하기 어려울 때 간결하게 데이터를 정리하여 큰 그림을 볼 수 있게 해줍니다. 이번 장에서는 다양한 평균들 가운데 대표적인 세 가지 평균값(mean), 중앙값(median), 최빈값(mode)을 구하는 방법을 살펴보겠습니다. 대푯값을 파악하므로써 대부분의 값이 어디쯤에 위치하는지 중심경향성을 추정할 수 있습니다.
+
+
+
+## 평균값(mean)
+평균값을 계산하는 방법은 모든 수를 더한 다음에 숫자의 전체 개수로 나누는 것입니다.
+평균값은 주로 데이터가 비교적 좌우대칭이고 하나의 경향만 포함하고 있을 때 사용합니다.
+
+
+
+```{r}
+power.class <- c(19, 20, 20, 20, 21)
+
+table(power.class)
+
+```
+
+```{r}
+
+mean(x)
+```
+
+
+
+## 중앙값(median)
+
+중앙값은 이상치 때문에 데이터가 편향되어 있을 때 사용합니다.
+
+
+쿵푸 교실의 예를 살펴봅시다.
+
+```{r}
+kungfu.class <- c(19, 19, 19, 20, 20, 20, 20, 20, 20, 21, 21, 21, 95, 97)
+
+table(kungfu.class)
+
+
+```
+
+
+입력한 데이터를 그래프로 쉽게 확인해 볼 수 있습니다.
+
+```{r}
+hist(kungfu.class)
+```
+
+
+
+
+## 최빈값
+최빈값(mode)은 범주적 데이터를 다룰 때나 데이터가 하나 이상의 데이터 그룹을 포함하고 있을 때 사용합니다. 
+
+범주적 데이터를 계산할 수 있는 유일한 종류의 평균은 최빈값입니다.
+```{r}
+
+```
+
+
+
+
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
