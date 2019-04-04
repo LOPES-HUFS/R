@@ -243,11 +243,133 @@ $(document).ready(function () {
 <p>2장</p>
 <div class="section level2">
 <h2>변수</h2>
-<p>변수 이름 규칙 알파벳, 숫자, _(언더스코어), .(마침표)로 구성첫 글자는 알파멧 또는 .으로 시작 -(하이픈) 사용불가,</p>
+<p>변수 이름 규칙 알파벳, 숫자, _(언더스코어), .(마침표)로 구성되며, -(하이픈)은 사용할 수 없다. 첫 글자는 알파멧 또는 .으로 시작하고, .으로 시작하면 뒤에는 숫자가 올 수 없다.</p>
+<p>변수값 할당 &lt;-와 =가 있는데, 연산자 =는 명령의 최상위 수준에서만 사용할 수 있고 &lt;-는 어느 곳에서나 사용할 수 있다. 함수 호출과 변수값 할당을 위해서는 &lt;-를 사용한다.</p>
+<p>*mean은 평균값을 의미한다.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih4IDwtIGMoMSwgMiwgMykpXG5gYGAifQ== -->
+<pre class="r"><code>mean(x &lt;- c(1, 2, 3))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueFxuYGBgIn0= -->
+<pre class="r"><code>x</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzXG4ifQ== -->
+<pre><code>[1] 1 2 3</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih4ID0gYygxLCAyLCAzKSlcbmBgYCJ9 -->
+<pre class="r"><code>mean(x = c(1, 2, 3))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueFxuYGBgIn0= -->
+<pre class="r"><code>x</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzXG4ifQ== -->
+<pre><code>[1] 1 2 3</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>같은 상황에서 =를 사용하면 x에 값이 저장되지 않는다.</p>
+<p>*근데 잘되는데?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbih4ID0gYygxLCAyLCAzKSlcbmBgYCJ9 -->
+<pre class="r"><code>mean(x = c(1, 2, 3))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueFxuYGBgIn0= -->
+<pre class="r"><code>x</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzXG4ifQ== -->
+<pre><code>[1] 1 2 3</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="----" class="section level2">
+<h2>함수 호출 시 인자 지정</h2>
+<p>R 명령의 대부분은 함수 호출로 이루어지는데, 인자 지정 방법에서 다른 언어들과 차이가 있기 때문에 확실히 알아두어야 한다.</p>
+<p>R의 함수 인자는 위치 또는 이름으로 지정할 수 있다. 예를 들어 다음과 같은 가상의 함수를 생각해보자.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9vKGEsIGIsIGM9MSwgZD0yKVxuYGBgIn0= -->
+<pre class="r"><code>foo(a, b, c=1, d=2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZm9vKGEsIGIsIGMgPSAxLCBkID0gMikgOiBjb3VsZCBub3QgZmluZCBmdW5jdGlvbiBcImZvb1wiXG4ifQ== -->
+<pre><code>Error in foo(a, b, c = 1, d = 2) : could not find function &quot;foo&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>foo 함수는 a, b, c, d라는 4개의 인자를 받을 수 있으며 c와 d에는 기본값이 지정되어 있으므로 생략이 가능하다. 만약 c 또는 d를 인자로 전달하지 않으면 각각 기본값인 c=1, d=2로 지정된다.</p>
+<p>예를 들어, 다음 명령들은 인자 위치에 따라 a=3, b=4, c=1, d=2를 지정하여 함수 foo()를 호출한다.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9vKGEsIGIsIGM9MSwgZD0yKVxuYGBgIn0= -->
+<pre class="r"><code>foo(a, b, c=1, d=2)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZm9vKGEsIGIsIGMgPSAxLCBkID0gMikgOiBjb3VsZCBub3QgZmluZCBmdW5jdGlvbiBcImZvb1wiXG4ifQ== -->
+<pre><code>Error in foo(a, b, c = 1, d = 2) : could not find function &quot;foo&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>다음 명령은 a=3, b=4, c=5를 지정하되 d는 생략했으므로 d=2가 지정되어 foo()를 호출한다.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9vKDMsIDQsIDUpXG5gYGAifQ== -->
+<pre class="r"><code>foo(3, 4, 5)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZm9vKDMsIDQsIDUpIDogY291bGQgbm90IGZpbmQgZnVuY3Rpb24gXCJmb29cIlxuIn0= -->
+<pre><code>Error in foo(3, 4, 5) : could not find function &quot;foo&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>만약 다음과 같이 프로토타입의 인자 순서와 다르게 인자를 다르게 넘겨주고 싶을 때, 인자 이름을 명시하여 값을 넘겨줄 수 있다. 1) 인자의 위치가 기억나지 않거나 2) 인자 c는 지정하지 않으면서 인자 d를 지정하고 싶은 경우 또한, 순서를 지켜 인자를 지정하는 방법과 인자의 이름을 지정하는 방법을 혼용해서 사용할 수도 있다.</p>
+<p>다음 명령은 a=3, b=4, d=5를 지정하며, c를 생략했으므로 c에는 기본값 1이 지정되어 함수 foo()를 호출한다.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9vKDMsIDQsIGQ9NSlcblxuYGBgIn0= -->
+<pre class="r"><code>foo(3, 4, d=5)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZm9vKDMsIDQsIGQgPSA1KSA6IGNvdWxkIG5vdCBmaW5kIGZ1bmN0aW9uIFwiZm9vXCJcbiJ9 -->
+<pre><code>Error in foo(3, 4, d = 5) : could not find function &quot;foo&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>R에서는 R 콘솔에서 명령을 하나씩 실행해보면서 개발하는 대화식interactive 개발 방식을 종종 사용한다. 이런 방식의 개발을 편하게 할 수 있도록 R에서는 함수의 인자 이름을 일부만 명시해도 되도록 허용하고 있다. 인자 이름을 일부만 지정하는 경우를 설명하기 위해 다음 함수를 가정해보자.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9vKGZvb2JhciwgZm9vY2FyPTMpXG5gYGAifQ== -->
+<pre class="r"><code>foo(foobar, foocar=3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>foobar에 1을 지정해 이 함수를 호출하는 일반적인 방법은 foo(foobar=1) 또는 foo(1)이다. 그러나 다음에 보인 것처럼 foobar와 foocar를 구분할 수 있을 정도만 인자 이름을 명시해도 된다.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZm9vKGZvb2I9MSlcbmZvbyhmb29jPTEpXG5gYGAifQ== -->
+<pre class="r"><code>foo(foob=1)
+foo(fooc=1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>두 가지 경우 모두 foobar=1을 인자로 해서 함수 foo()를 호출한다.</p>
+</div>
+<div class="section level2">
+<h2>스칼라</h2>
+<p>이 절에서는 스칼라Scalar 데이터 타입에 관해 살펴본다. 스칼라란 단일 차원의 값을 뜻하는 것으로 숫자 1, 2, 3, …을 예로 들 수 있다. 반면 좌표 평면 위에 있는 점인 (1, 2)는 2차원 값이므로 이 절에서 설명하는 스칼라에 해당하지 않는다.</p>
+<p>R</p>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpS7J2EIOydtOyaqe2VnCDrjbDsnbTthLAg7LKY66asICYg67aE7ISdIOyLpOustA0KDQoy7J6lDQoNCiMj67OA7IiYDQoNCuuzgOyImCDsnbTrpoQg6rec7LmZDQrslYztjIzrsrMsIOyIq+yekCwgXyjslrjrjZTsiqTsvZTslrQpLCAuKOuniOy5qO2RnCnroZwg6rWs7ISx7LKrIOq4gOyekOuKlCDslYztjIzrqacg65iQ64qUIC7snLzroZwg7Iuc7J6RDQotKO2VmOydtO2UiCkg7IKs7Jqp67aI6rCALCA=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpS7J2EIOydtOyaqe2VnCDrjbDsnbTthLAg7LKY66asICYg67aE7ISdIOyLpOustA0KDQoy7J6lDQoNCiMj67OA7IiYDQoNCuuzgOyImCDsnbTrpoQg6rec7LmZDQrslYztjIzrsrMsIOyIq+yekCwgXyjslrjrjZTsiqTsvZTslrQpLCAuKOuniOy5qO2RnCnroZwg6rWs7ISx65CY66mwLCAtKO2VmOydtO2UiCnsnYAg7IKs7Jqp7ZWgIOyImCDsl4bri6QuDQrssqsg6riA7J6Q64qUIOyVjO2MjOuppyDrmJDripQgLuycvOuhnCDsi5zsnpHtlZjqs6AsIC7snLzroZwg7Iuc7J6R7ZWY66m0IOuSpOyXkOuKlCDsiKvsnpDqsIAg7JisIOyImCDsl4bri6QuDQoNCuuzgOyImOqwkiDtlaDri7kNCjwt7JmAID3qsIAg7J6I64qU642wLCDsl7DsgrDsnpAgPeuKlCDrqoXroLnsnZgg7LWc7IOB7JyEIOyImOykgOyXkOyEnOunjCDsgqzsmqntlaAg7IiYIOyeiOqzoCA8LeuKlCDslrTripAg6rOz7JeQ7ISc64KYIOyCrOyaqe2VoCDsiJgg7J6I64ukLiDtlajsiJgg7Zi47Lac6rO8IOuzgOyImOqwkiDtlaDri7nsnYQg7JyE7ZW07ISc64qUIDwt66W8IOyCrOyaqe2VnOuLpC4NCg0KKm1lYW7snYAg7Y+J6reg6rCS7J2EIOydmOuvuO2VnOuLpC4NCmBgYHtyfQ0KbWVhbih4IDwtIGMoMSwgMiwgMykpDQp4DQpgYGANCg0K6rCZ7J2AIOyDge2ZqeyXkOyEnCA966W8IOyCrOyaqe2VmOuptCB47JeQIOqwkuydtCDsoIDsnqXrkJjsp4Ag7JWK64qU64ukLg0KDQoq6re8642wIOyemOuQmOuKlOuNsD8NCmBgYHtyfQ0KbWVhbih4ID0gYygxLCAyLCAzKSkNCngNCmBgYA0KDQoNCg0KIyPtlajsiJgg7Zi47LacIOyLnCDsnbjsnpAg7KeA7KCVDQoNClIg66qF66C57J2YIOuMgOu2gOu2hOydgCDtlajsiJgg7Zi47Lac66GcIOydtOujqOyWtOyngOuKlOuNsCwg7J247J6QIOyngOyglSDrsKnrspXsl5DshJwg64uk66W4IOyWuOyWtOuTpOqzvCDssKjsnbTqsIAg7J6I6riwIOuVjOusuOyXkCDtmZXsi6Ttnogg7JWM7JWE65GQ7Ja07JW8IO2VnOuLpC4NCg0KUuydmCDtlajsiJgg7J247J6Q64qUIOychOy5mCDrmJDripQg7J2066aE7Jy866GcIOyngOygle2VoCDsiJgg7J6I64ukLiDsmIjrpbwg65Ok7Ja0IOuLpOydjOqzvCDqsJnsnYAg6rCA7IOB7J2YIO2VqOyImOulvCDsg53qsIHtlbTrs7TsnpAuDQoNCmBgYHtyfQ0KZm9vKGEsIGIsIGM9MSwgZD0yKQ0KYGBgDQoNCmZvbyDtlajsiJjripQgYSwgYiwgYywgZOudvOuKlCA06rCc7J2YIOyduOyekOulvCDrsJvsnYQg7IiYIOyeiOycvOupsCBj7JmAIGTsl5DripQg6riw67O46rCS7J20IOyngOygleuQmOyWtCDsnojsnLzrr4DroZwg7IOd65617J20IOqwgOuKpe2VmOuLpC4g66eM7JW9IGMg65iQ64qUIGTrpbwg7J247J6Q66GcIOyghOuLrO2VmOyngCDslYrsnLzrqbQg6rCB6rCBIOq4sOuzuOqwkuyduCBjPTEsIGQ9MuuhnCDsp4DsoJXrkJzri6QuDQoNCuyYiOulvCDrk6TslrQsIOuLpOydjCDrqoXroLnrk6TsnYAg7J247J6QIOychOy5mOyXkCDrlLDrnbwgYT0zLCBiPTQsIGM9MSwgZD0y66W8IOyngOygle2VmOyXrCDtlajsiJggZm9vKCnrpbwg7Zi47Lac7ZWc64ukLg0KYGBge3J9DQpmb28oMywgNCkNCmZvbygzLCA0LCAxKQ0KZm9vKDMsIDQsIDEsIDIpDQpgYGANCg0K64uk7J2MIOuqheugueydgCBhPTMsIGI9NCwgYz0166W8IOyngOygle2VmOuQmCBk64qUIOyDneuete2WiOycvOuvgOuhnCBkPTLqsIAg7KeA7KCV65CY7Ja0IGZvbygp66W8IO2YuOy2nO2VnOuLpC4NCmBgYHtyfQ0KZm9vKDMsIDQsIDUpDQpgYGANCg0K66eM7JW9IOuLpOydjOqzvCDqsJnsnbQg7ZSE66Gc7Yag7YOA7J6F7J2YIOyduOyekCDsiJzshJzsmYAg64uk66W06rKMIOyduOyekOulvCDri6TrpbTqsowg64SY6rKo7KO86rOgIOyLtuydhCDrlYwsIOyduOyekCDsnbTrpoTsnYQg66qF7Iuc7ZWY7JesIOqwkuydhCDrhJjqsqjspIQg7IiYIOyeiOuLpC4NCjEpIOyduOyekOydmCDsnITsuZjqsIAg6riw7Ja164KY7KeAIOyViuqxsOuCmCAyKSDsnbjsnpAgY+uKlCDsp4DsoJXtlZjsp4Ag7JWK7Jy866m07IScIOyduOyekCBk66W8IOyngOygle2VmOqzoCDsi7bsnYAg6rK97JqwDQrrmJDtlZwsIOyInOyEnOulvCDsp4DsvJwg7J247J6Q66W8IOyngOygle2VmOuKlCDrsKnrspXqs7wg7J247J6Q7J2YIOydtOumhOydhCDsp4DsoJXtlZjripQg67Cp67KV7J2EIO2YvOyaqe2VtOyEnCDsgqzsmqntlaAg7IiY64+EIOyeiOuLpC4NCg0K64uk7J2MIOuqheugueydgCBhPTMsIGI9NCwgZD0166W8IOyngOygle2VmOupsCwgY+ulvCDsg53rnrXtlojsnLzrr4DroZwgY+yXkOuKlCDquLDrs7jqsJIgMeydtCDsp4DsoJXrkJjslrQg7ZWo7IiYIGZvbygp66W8IO2YuOy2nO2VnOuLpC4NCmBgYHtyfQ0KZm9vKGE9MywgYj00LCBkPTUpDQpmb28oZD01LCBhPTMsIGI9NCkNCmZvbygzLCA0LCBkPTUpDQpgYGANCg0KUuyXkOyEnOuKlCBSIOy9mOyGlOyXkOyEnCDrqoXroLnsnYQg7ZWY64KY7JSpIOyLpO2Wie2VtOuztOuptOyEnCDqsJzrsJztlZjripQg64yA7ZmU7IudaW50ZXJhY3RpdmUg6rCc67CcIOuwqeyLneydhCDsooXsooUg7IKs7Jqp7ZWc64ukLiDsnbTrn7Ag67Cp7Iud7J2YIOqwnOuwnOydhCDtjrjtlZjqsowg7ZWgIOyImCDsnojrj4TroZ0gUuyXkOyEnOuKlCDtlajsiJjsnZgg7J247J6QIOydtOumhOydhCDsnbzrtoDrp4wg66qF7Iuc7ZW064+EIOuQmOuPhOuhnSDtl4jsmqntlZjqs6Ag7J6I64ukLiDsnbjsnpAg7J2066aE7J2EIOydvOu2gOunjCDsp4DsoJXtlZjripQg6rK97Jqw66W8IOyEpOuqhe2VmOq4sCDsnITtlbQg64uk7J2MIO2VqOyImOulvCDqsIDsoJXtlbTrs7TsnpAuDQpgYGB7cn0NCmZvbyhmb29iYXIsIGZvb2Nhcj0zKQ0KYGBgDQoNCmZvb2JhcuyXkCAx7J2EIOyngOygle2VtCDsnbQg7ZWo7IiY66W8IO2YuOy2nO2VmOuKlCDsnbzrsJjsoIHsnbgg67Cp67KV7J2AIGZvbyhmb29iYXI9MSkg65iQ64qUIGZvbygxKeydtOuLpC4g6re465+s64KYIOuLpOydjOyXkCDrs7Tsnbgg6rKD7LKY65+8IGZvb2JhcuyZgCBmb29jYXLrpbwg6rWs67aE7ZWgIOyImCDsnojsnYQg7KCV64+E66eMIOyduOyekCDsnbTrpoTsnYQg66qF7Iuc7ZW064+EIOuQnOuLpC4gDQpgYGB7cn0NCmZvbyhmb29iPTEpDQpmb28oZm9vYz0xKQ0KYGBgDQoNCuuRkCDqsIDsp4Ag6rK97JqwIOuqqOuRkCBmb29iYXI9MeydhCDsnbjsnpDroZwg7ZW07IScIO2VqOyImCBmb28oKeulvCDtmLjstpztlZzri6QuDQoNCg0KDQojI+yKpOy5vOudvA0KDQrsnbQg7KCI7JeQ7ISc64qUIOyKpOy5vOudvFNjYWxhciDrjbDsnbTthLAg7YOA7J6F7JeQIOq0gO2VtCDsgrTtjrTrs7jri6QuIOyKpOy5vOudvOuegCDri6jsnbwg7LCo7JuQ7J2YIOqwkuydhCDrnLvtlZjripQg6rKD7Jy866GcIOyIq+yekCAxLCAyLCAzLCAuLi7snYQg7JiI66GcIOuTpCDsiJgg7J6I64ukLiDrsJjrqbQg7KKM7ZGcIO2PieuptCDsnITsl5Ag7J6I64qUIOygkOyduCAoMSwgMinripQgMuywqOybkCDqsJLsnbTrr4DroZwg7J20IOygiOyXkOyEnCDshKTrqoXtlZjripQg7Iqk7Lm865287JeQIO2VtOuLue2VmOyngCDslYrripTri6QuDQoNClINCg==</div>
 
 
 
