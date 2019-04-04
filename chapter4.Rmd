@@ -1,0 +1,45 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Chapter 4. 확률 계산하기
+
+'베팅, 확률계산, 성공적'
+
+
+사람들은 말합니다 '인생은 확률게임이다'라고. 확률게임에서 승리하는 방법은 분모와 분자로 나누어 볼 수 있습니다. 하나는 시행 횟수(분모)를 늘리는 것이고 다른 하나는 확률 자체(분자)를 잘 예측하는 것입니다. 이번 글에서는 확률을 분해해 나열해보고, 어떤 상황에서 어떤 확률을 사용해야 하는지 알아보겠습니다. 
+
+벤다이어그램
+
+배반사건 교사건 
+
+조건부확률
+
+확률트리 
+
+뒤집힌 조건부확률
+
+전확률의 법칙
+
+베이즈정리
+
+종속사건
+독립사건
+
+
+
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
