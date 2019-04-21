@@ -48,7 +48,20 @@ hist_crazymango <- hist(crazymango,
  막대의 면적이 도수에 비례하기 때문에 도수의 밀도 개념이 존재합니다. 도수밀도는 특정 구간에 속한 값들의 집중도를 나타내며, 도수를 그룹의 폭으로 나눈 값입니다. 막대의 높이에 따라 높으면 고밀도, 낮으면 저밀도를 의미합니다. 
 * 범주적 데이터는 단어(word)와 정성(quality)을 다루며, 수치적 데이터는 숫자(number)와 정량(quantity)을 다룹니다.
 
-p.71-72 (using data of page 61-62)
+p.71-72 
+```{r}
+AngryBull <- data.frame(grade=c(0,1,2,3,4,5),
+                        width=c(1,1,1,1,1,1),
+                        density=c(10,30,50,30,10,10))
+AngryBull <- data.frame(AngryBull,
+                        frequency=c(AngryBull$width * AngryBull$density))
+head(AngryBull)
+hist(xlab=AngryBull$grade, ylab=AngryBull$density)
+
+```
+
+
+cf) p.61-62 자료를 이용한 도수밀도
 ```{r}
 hist_crazymango <- hist(crazymango, 
                         breaks=5,  
