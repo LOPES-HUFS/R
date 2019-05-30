@@ -26,7 +26,7 @@ plot(d, type="o", ylim=c(0.0, 2.5), main="stagnant")
 plot(d, type="o", ylim=c(2.0, 2.5), main="skyrocketing")
 ```
 
-*plot(데이터명, type=“그래프유형”, lty=“선유형”) 그래프유형 : 꺾은선(l) , 접과선(b), 접과선 중첩(o) 등 선유형 : blank, solid, dashed, dotted, totdash, longdash, twodash 등 xlim=c(숫자, 숫자) : 그래프 x축 범위 지정 ylim=c(숫자, 숫자) : 그래프 y축 범위 지정
+*plot(데이터명, type=“그래프유형”, lty=“선유형”) 그래프유형 : 꺾은선(l) , 접과선(b), 접과선 중첩(o) 등 선유형 : blank, solid, dashed, dotted, totdash, longdash, twodash 등 xlim=c(숫자, 숫자) : 그래프 x축 범위 지정 ylim=c(숫자, 숫자) : 그래프 y축 범위 지정  
 
 y축 범위를 지정함으로써 이처럼 상반된 인상을 심어줄 수 있습니다.
 
