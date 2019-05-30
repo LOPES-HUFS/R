@@ -244,21 +244,44 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
-<p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
-<p>Try executing this chunk by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
+<div id=".--" class="section level2">
+<h2>4장. 확률 계산하기</h2>
+<p>확률이론은 무질서한 데이터에서 패턴을 발견하여 예측을 가능하게 해줍니다.</p>
+<div id="-" class="section level3">
+<h3>사건, 여사건</h3>
+<p>같은 조건 아래에서 반복할 수 있고 그 결과가 우연에 의하여 결정되는 실험이나 관찰을 시행이라고 합니다. 그 시행의 결과로 나타나는 것을 사건이라 부릅니다.</p>
+<p>여사건은 어떤 사건이 일어나지 않는 사건으로써, <code>1-P(A)</code>와 같이, 일어날 수 있는 모든 경우의 사건(전사건) <code>1</code>에서 사건 확률<code>P(A)</code>을 뺀 값이 됩니다.</p>
+</div>
+<div class="section level3">
+<h3>벤다이어그램</h3>
+</div>
+<div id="--" class="section level3">
+<h3>사건의 종류 (독립사건/배반사건/종속사건)</h3>
+<p>독립사건은 서로 다른 사건이 일어날 확률에 영향을 주지 않는 사건입니다. 다시 말해, 두 사건 A와 B가 독립적이면 A가 일어날 확률이 B가 일어날 확률에 영향을 주지 않습니다.</p>
+<p>사건 A와 B가 독립시행일 경우, 두 사건이 동시에 일어날 확률은 각 사건확률의 곱과 같습니다. <code>P(A∩B) = P(A) * P(B)</code></p>
+<p>다음 세 조건 중 하나만 성립해도 두 사건 A, B를 독립사건이라 부를 수 있습니다. <code>1. P(A∩B) = P(A) * P(B)</code> <code>2. P(B|A) = P(B) ( 단, P(A) &gt; 0 )</code> <code>3. P(A|B) = P(A) ( 단, P(B) &gt; 0 )</code></p>
+<p>배반사건은 두 사건이 동시에 일어날 수 없을 때를 말합니다.</p>
+<p>종속사건은 사건 A가 일어났을 경우와 일어나지 앟았을 경우에 따라 사건 B의 확률이 다를 때를 말하며, 이때 B는 A의 종속사건이라고 합니다.</p>
+</div>
+<div id="--" class="section level3">
+<h3>조건부 확률 (확률트리)</h3>
+<p><code>P(AㅣB) = P(A∩B) / P(B)</code></p>
+<p>조건부 확률(conditional probability)은 사건 B가 일어났을 때 사건 A가 일어날 확률을 의미합니다. 사건 B의 영향을 받아 사건 A가 변할 때 우리는 이를 조건부 확률이라고 합니다. (단, P(B)&gt;0 일 때)</p>
+</div>
+<div id="-" class="section level3">
+<h3>확률의 연산</h3>
+</div>
+<div id="-" class="section level3">
+<h3>베이즈 정리</h3>
+<p>베이즈 정리는 두 확률변수의 사전확률과 사후확률 사이의 관계를 나타내는 것으로써, 사전확률로부터 사후확률을 구할 수 있다는 특징이 있습니다.</p>
+<p>먼저 사건 B가 일어날 확률 P(B)는 다음과 같습니다. <code>P(B) = P(A∩B) + P(A'∩B)</code> 앞서 조건부 확률에서 <code>P(B|A) = P(A∩B) / P(A)</code>를 A와 B의 교집합으로 정리하면, <code>P(A∩B) = P(A) * P(B|A)</code>이 됩니다. 동일한 방법으로 <code>P(A'∩B) = P(A) * P(B|A)</code></p>
+<pre><code></code></pre>
+<p><code>P(A∣B) = P(B∣A) * P(A) / P(B)</code></p>
 <!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdChjYXJzKVxuYGBgIn0= -->
-<pre class="r"><code>plot(cars)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the <em>Preview</em> button or press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
-<!-- rnb-text-end -->
+</div>
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhGIFN0YXRpc3RpY3MgNCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNClRoaXMgaXMgYW4gW1IgTWFya2Rvd25dKGh0dHA6Ly9ybWFya2Rvd24ucnN0dWRpby5jb20pIE5vdGVib29rLiBXaGVuIHlvdSBleGVjdXRlIGNvZGUgd2l0aGluIHRoZSBub3RlYm9vaywgdGhlIHJlc3VsdHMgYXBwZWFyIGJlbmVhdGggdGhlIGNvZGUuIA0KDQpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIA0KDQpgYGB7cn0NCnBsb3QoY2FycykNCmBgYA0KDQpBZGQgYSBuZXcgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpJbnNlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ3RybCtBbHQrSSouDQoNCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ3RybCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLg0KDQpUaGUgcHJldmlldyBzaG93cyB5b3UgYSByZW5kZXJlZCBIVE1MIGNvcHkgb2YgdGhlIGNvbnRlbnRzIG9mIHRoZSBlZGl0b3IuIENvbnNlcXVlbnRseSwgdW5saWtlICpLbml0KiwgKlByZXZpZXcqIGRvZXMgbm90IHJ1biBhbnkgUiBjb2RlIGNodW5rcy4gSW5zdGVhZCwgdGhlIG91dHB1dCBvZiB0aGUgY2h1bmsgd2hlbiBpdCB3YXMgbGFzdCBydW4gaW4gdGhlIGVkaXRvciBpcyBkaXNwbGF5ZWQuDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhGIFN0YXRpc3RpY3MgNCINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCiMjIDTsnqUuIO2ZleuloCDqs4TsgrDtlZjquLANCg0K7ZmV66Wg7J2066Gg7J2AIOustOyniOyEnO2VnCDrjbDsnbTthLDsl5DshJwg7Yyo7YS07J2EIOuwnOqyrO2VmOyXrCDsmIjsuKHsnYQg6rCA64ql7ZWY6rKMIO2VtOykjeuLiOuLpC4gDQoNCg0KIyMjIOyCrOqxtCwg7Jes7IKs6rG0DQoNCuqwmeydgCDsobDqsbQg7JWE656Y7JeQ7IScIOuwmOuzte2VoCDsiJgg7J6I6rOgIOq3uCDqsrDqs7zqsIAg7Jqw7Jew7JeQIOydmO2VmOyXrCDqsrDsoJXrkJjripQg7Iuk7ZeY7J2064KYIOq0gOywsOydhCDsi5ztlonsnbTrnbzqs6Ag7ZWp64uI64ukLiDqt7gg7Iuc7ZaJ7J2YIOqysOqzvOuhnCDrgpjtg4DrgpjripQg6rKD7J2EIOyCrOqxtOydtOudvCDrtoDrpoXri4jri6QuDQoNCuyXrOyCrOqxtOydgCDslrTrlqQg7IKs6rG07J20IOydvOyWtOuCmOyngCDslYrripQg7IKs6rG07Jy866Gc7I2oLCBgMS1QKEEpYOyZgCDqsJnsnbQsIOydvOyWtOuCoCDsiJgg7J6I64qUIOuqqOuToCDqsr3smrDsnZgg7IKs6rG0KOyghOyCrOqxtCkgYDFg7JeQ7IScIOyCrOqxtCDtmZXrpaBgUChBKWDsnYQg67qAIOqwkuydtCDrkKnri4jri6QuIA0KDQojIyMg67Kk64uk7J207Ja06re4656oDQoNCiMjIyDsgqzqsbTsnZgg7KKF66WYICjrj4Xrpr3sgqzqsbQv67Cw67CY7IKs6rG0L+yiheyGjeyCrOqxtCkNCg0K64+F66a97IKs6rG07J2AIOyEnOuhnCDri6Trpbgg7IKs6rG07J20IOydvOyWtOuCoCDtmZXrpaDsl5Ag7JiB7Zal7J2EIOyjvOyngCDslYrripQg7IKs6rG07J6F64uI64ukLiDri6Tsi5wg66eQ7ZW0LCDrkZAg7IKs6rG0IEHsmYAgQuqwgCDrj4Xrpr3soIHsnbTrqbQgQeqwgCDsnbzslrTrgqAg7ZmV66Wg7J20IELqsIAg7J287Ja064KgIO2ZleuloOyXkCDsmIHtlqXsnYQg7KO87KeAIOyViuyKteuLiOuLpC4NCg0K7IKs6rG0IEHsmYAgQuqwgCDrj4Xrpr3si5ztlonsnbwg6rK97JqwLCDrkZAg7IKs6rG07J20IOuPmeyLnOyXkCDsnbzslrTrgqAg7ZmV66Wg7J2AIOqwgSDsgqzqsbTtmZXrpaDsnZgg6rOx6rO8IOqwmeyKteuLiOuLpC4NCmBQKEHiiKlCKSA9IFAoQSkgKiBQKEIpYA0KDQoNCuuLpOydjCDshLgg7KGw6rG0IOykkSDtlZjrgpjrp4wg7ISx66a97ZW064+EIOuRkCDsgqzqsbQgQSwgQuulvCDrj4Xrpr3sgqzqsbTsnbTrnbwg67aA66W8IOyImCDsnojsirXri4jri6QuIA0KYCAxLiBQKEHiiKlCKSA9IFAoQSkgKiBQKEIpYA0KYCAyLiBQKEJ8QSkgPSBQKEIpICgg64uoLCBQKEEpID4gMCApYA0KYCAzLiBQKEF8QikgPSBQKEEpICgg64uoLCBQKEIpID4gMCApYA0KDQrrsLDrsJjsgqzqsbTsnYAg65GQIOyCrOqxtOydtCDrj5nsi5zsl5Ag7J287Ja064KgIOyImCDsl4bsnYQg65WM66W8IOunkO2VqeuLiOuLpC4gDQoNCuyiheyGjeyCrOqxtOydgCDsgqzqsbQgQeqwgCDsnbzslrTrgqzsnYQg6rK97Jqw7JmAIOydvOyWtOuCmOyngCDslZ/slZjsnYQg6rK97Jqw7JeQIOuUsOudvCDsgqzqsbQgQuydmCDtmZXrpaDsnbQg64uk66W8IOuVjOulvCDrp5DtlZjrqbAsIOydtOuVjCBC64qUIEHsnZgg7KKF7IaN7IKs6rG07J2065286rOgIO2VqeuLiOuLpC4NCg0KDQojIyMg7KGw6rG067aAIO2ZleuloCAo7ZmV66Wg7Yq466asKQ0KDQpgUChB44WjQikgPSBQKEHiiKlCKSAvIFAoQilgDQoNCuyhsOqxtOu2gCDtmZXrpaAoY29uZGl0aW9uYWwgcHJvYmFiaWxpdHkp7J2AIOyCrOqxtCBC6rCAIOydvOyWtOuCrOydhCDrlYwg7IKs6rG0IEHqsIAg7J287Ja064KgIO2ZleuloOydhCDsnZjrr7jtlanri4jri6QuIOyCrOqxtCBC7J2YIOyYge2WpeydhCDrsJvslYQg7IKs6rG0IEHqsIAg67OA7ZWgIOuVjCDsmrDrpqzripQg7J2066W8IOyhsOqxtOu2gCDtmZXrpaDsnbTrnbzqs6Ag7ZWp64uI64ukLiAo64uoLCBQKEIpPjAg7J28IOuVjCkNCg0KDQojIyMg7ZmV66Wg7J2YIOyXsOyCsA0KDQoNCg0KIyMjIOuyoOydtOymiCDsoJXrpqwNCg0K67Kg7J207KaIIOygleumrOuKlCDrkZAg7ZmV66Wg67OA7IiY7J2YIOyCrOyghO2ZleuloOqzvCDsgqztm4TtmZXrpaAg7IKs7J207J2YIOq0gOqzhOulvCDrgpjtg4DrgrTripQg6rKD7Jy866Gc7I2oLCDsgqzsoITtmZXrpaDroZzrtoDthLAg7IKs7ZuE7ZmV66Wg7J2EIOq1rO2VoCDsiJgg7J6I64uk64qUIO2KueynleydtCDsnojsirXri4jri6QuDQoNCuuovOyggCDsgqzqsbQgQuqwgCDsnbzslrTrgqAg7ZmV66WgIFAoQinripQg64uk7J2M6rO8IOqwmeyKteuLiOuLpC4NCmBQKEIpID0gUChB4oipQikgKyBQKEEn4oipQilgDQrslZ7shJwg7KGw6rG067aAIO2ZleuloOyXkOyEnCBgUChCfEEpID0gUChB4oipQikgLyBQKEEpYOulvCBB7JmAIELsnZgg6rWQ7KeR7ZWp7Jy866GcIOygleumrO2VmOuptCwgYFAoQeKIqUIpID0gUChBKSAqIFAoQnxBKWDsnbQg65Cp64uI64ukLiDrj5nsnbztlZwg67Cp67KV7Jy866GcIGBQKEEn4oipQikgPSBQKEEpICogUChCfEEpYA0KDQoNCmBgYA0KYGBgDQoNCg0KYFAoQeKIo0IpID0gUChC4oijQSkgKiBQKEEpIC8gUChCKWANCg0KDQoNCg0K</div>
 
 
 

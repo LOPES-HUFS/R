@@ -3,16 +3,63 @@ title: "HF Statistics 4"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+## 4장. 확률 계산하기
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+확률이론은 무질서한 데이터에서 패턴을 발견하여 예측을 가능하게 해줍니다. 
 
-```{r}
-plot(cars)
+
+### 사건, 여사건
+
+같은 조건 아래에서 반복할 수 있고 그 결과가 우연에 의하여 결정되는 실험이나 관찰을 시행이라고 합니다. 그 시행의 결과로 나타나는 것을 사건이라 부릅니다.
+
+여사건은 어떤 사건이 일어나지 않는 사건으로써, `1-P(A)`와 같이, 일어날 수 있는 모든 경우의 사건(전사건) `1`에서 사건 확률`P(A)`을 뺀 값이 됩니다. 
+
+### 벤다이어그램
+
+### 사건의 종류 (독립사건/배반사건/종속사건)
+
+독립사건은 서로 다른 사건이 일어날 확률에 영향을 주지 않는 사건입니다. 다시 말해, 두 사건 A와 B가 독립적이면 A가 일어날 확률이 B가 일어날 확률에 영향을 주지 않습니다.
+
+사건 A와 B가 독립시행일 경우, 두 사건이 동시에 일어날 확률은 각 사건확률의 곱과 같습니다.
+`P(A∩B) = P(A) * P(B)`
+
+
+다음 세 조건 중 하나만 성립해도 두 사건 A, B를 독립사건이라 부를 수 있습니다. 
+` 1. P(A∩B) = P(A) * P(B)`
+` 2. P(B|A) = P(B) ( 단, P(A) > 0 )`
+` 3. P(A|B) = P(A) ( 단, P(B) > 0 )`
+
+배반사건은 두 사건이 동시에 일어날 수 없을 때를 말합니다. 
+
+종속사건은 사건 A가 일어났을 경우와 일어나지 앟았을 경우에 따라 사건 B의 확률이 다를 때를 말하며, 이때 B는 A의 종속사건이라고 합니다.
+
+
+### 조건부 확률 (확률트리)
+
+`P(AㅣB) = P(A∩B) / P(B)`
+
+조건부 확률(conditional probability)은 사건 B가 일어났을 때 사건 A가 일어날 확률을 의미합니다. 사건 B의 영향을 받아 사건 A가 변할 때 우리는 이를 조건부 확률이라고 합니다. (단, P(B)>0 일 때)
+
+
+### 확률의 연산
+
+
+
+### 베이즈 정리
+
+베이즈 정리는 두 확률변수의 사전확률과 사후확률 사이의 관계를 나타내는 것으로써, 사전확률로부터 사후확률을 구할 수 있다는 특징이 있습니다.
+
+먼저 사건 B가 일어날 확률 P(B)는 다음과 같습니다.
+`P(B) = P(A∩B) + P(A'∩B)`
+앞서 조건부 확률에서 `P(B|A) = P(A∩B) / P(A)`를 A와 B의 교집합으로 정리하면, `P(A∩B) = P(A) * P(B|A)`이 됩니다. 동일한 방법으로 `P(A'∩B) = P(A) * P(B|A)`
+
+
+```
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+`P(A∣B) = P(B∣A) * P(A) / P(B)`
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+
+
