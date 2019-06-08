@@ -34,8 +34,8 @@ d
 
 p.127
 ```{r}
-shooter1 <- c(8, 9,9, 10,10,10, 11,11, 12)
-shooter2 <- c(8, 10,10,10,10,10,10,10,10, 12)
+shooter1 <- c(8,9,9,10,10,10,11,11,12)
+shooter2 <- c(8,10,10,10,10,10,10,10,10,12)
 
 median(shooter1)
 mean(shooter1)
@@ -45,19 +45,35 @@ median(shooter2)
 mean(shooter2)
 range(shooter2)
 
+average.s1 = sum(shooter1) / length(shooter1)
+
+average.s2 = sum(shooter2) / length(shooter2)
+
+
+d <- data.frame(Average = c(average.s1, average.s2),
+                Median = c(median(shooter1), median(shooter2)),
+                Range = c(range(shooter1), range(shooter2)))
+
+d
+
+length(range(shooter1))
+length(range(shooter2))
+
 ```
 
-범위(range)는 데이터 값들의 분포 방식을 측정하는 방법으로, 데이터가 얼마나 많은 숫자 값을 포함하고 있는지 알려줍니다.
+함수설명
+median함수는 중앙값
 
-*범위랑 range함수랑 다름을 설명
+mean함수는 평균값
 
-범위를 구하는 방법은 `범위 = 상한 - 하한`, 가장 큰 값에서 가장 작은 값을 뺍니다. 
+range함수는 두 값, 가장 큰 값(상한)과 가장 작은 값(하한)을 나타냅니다. length(range())
 
-* 데이터 프레임으로 짜서 시각화
+범위(range)는 데이터 값들의 분포 방식을 측정하는 방법으로, 데이터가 얼마나 많은 숫자 값을 포함하고 있는지 알려줍니다. R의 range함수는 두 값, 가장 큰 값(상한)과 가장 작은 값(하한)을 나타냅니다. 
+
 
 보이는 바와 같이 평균값, 중간값, 범위가 동일합니다.
 우리는 자료를 시각화하여 살펴볼 필요가 있습니다.
-*데이터 프레임이 같아서 시각화해야 한다.
+* 데이터 프레임이 같아서 시각화해야 한다.
 
 ```{r}
 shooter1 = c(8, 9,9, 10,10,10, 11,11, 12)
