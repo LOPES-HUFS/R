@@ -1,0 +1,195 @@
+---
+title: "HF Statistics 1"
+output: html_notebook
+---
+
+# Intro. Head First Statistics를 시작하며
+
+## 통계란 무엇일까
+
+통계는 ‘날 것 그대로의 사실과 숫자’를 ‘뭔가 의미 있는 방식으로 정리’해 주는 수입니다. 데이터 안에 일정한 법칙이나 경향이 존재하는 경우 그래프는 데이터 안에 존재하는 그 규칙들을 볼 수 있게 합니다.
+
+
+그렇다면 우리가 통계를 배워야하는 이유는 무엇일까요? 크게 두 가지를 들 수 있습니다.
+
+첫째는 원시 데이터 그 자체는 파악하기 어려운 경우가 많습니다. 파악할 수 없는 숫자의 나열(원시 데이터)는 의미를 가지기 어렵습니다. 통계를 배우면 다양한 시각화(visualize) 방법을 통해 데이터의 핵심적인 내용을 꿰뚫어 볼 수 있습니다.
+
+둘째는 원시 데이터를 통계적으로 조작함으로써 의미를 부여할 수 있기 때문입니다. 동일한 데이터일지라도 자료 해석과 시각화 방법에 따라 다른 해석이 가능합니다. 다시 말해, 통계적으로 재구성된 데이터에는 어떠한 해석을 유도하는 작성자의 의도가 숨어있을 수 있습니다.
+
+정리하면 다음과 같습니다. 우리는 속지 않고 데이터가 의미하는 핵심을 파악하고자 '통계적 리터러시(통계나 데이터를 해석하고 활용할 줄 아는 능력)'을 길러야 합니다.
+
+이해를 돕기 위해 예시를 들어보겠습니다. d는 7월부터 12월까지 매출을 나타낸 데이터입니다. 
+
+p.45
+```{r}
+d <- data.frame(month=c(7,8,9,10,11,12),
+                profit=c(2.0, 2.1, 2.2, 2.1, 2.3, 2.4))
+head(d)
+# head() 함수 : head함수는 처음 6개의 관측값을 출력합니다.
+# 데이터가 제대로 읽혔는지 확인하는 방법으로 head함수와 tail함수를 사용합니다.  
+
+plot(d, type="o", ylim=c(0.0, 2.5), main="stagnant")
+# plot() 함수 : plot(데이터명, type=“그래프유형”, lty=“선유형”) 
+# 그래프유형 : 꺾은 선(l) , 접과 선(b), 접과 선 중첩(o) 등 
+# 선유형 : blank, solid, dashed, dotted, totdash, longdash, twodash 등 
+
+plot(d, type="o", ylim=c(2.0, 2.5), main="skyrocketing")
+# xlim=c(숫자, 숫자) : 그래프 x축 범위 지정 ylim=c(숫자, 숫자) : 그래프 y축 범위 지정  
+```
+
+같은 데이터로도 y축 범위를 살짝 변경하면 다음과 같이 전혀 다른 그래프를 만들 수 있습니다. 우리는 숫자에 속지 않기 위해서 주어진 자료를 비판적이고 능동적으로 해석하는 연습을 해야 합니다.
+
+( * 정보와 데이터는 조금 차이가 있습니다. 데이터는 수집된 날 것 그대로의 사실과 숫자를 의미하고, 정보는 약간의 의미가 부여된 데이터를 가리킵니다. 예컨대, '4, 5, 6’이라는 숫자는 데이터입니다. 그런데 이 데이터가 학년을 의미한다는 부연설명이 있다면 정보가 됩니다.)
+
+
+## 그래프 종류
+실제로 드러내고자 하는 메시지가 무엇인지, 최소한으로 나타낼 사실이 무엇인지에 따라 사용할 그래프가 결정됩니다. 이번 글에서는 크게 네 종류(파이, 막대, 히스토그램, 누적도수)의 그래프를 살펴보겠습니다. 각 그래프의 특징이 무엇인지 살펴보고 언제 유용하게 쓰일지 확인해봅시다.
+
+먼저 ‘파이 그래프’입니다. 파이차트는 파이(Pie)를 조각내어 나누듯이, 전체 100%를 각 도수의 상대적인 크기(비율)로 나누어 보여줍니다. 도수는 어떤 특정한 그룹이나 범위 안에 얼마나 많은 항목이 들어 있는지 나타내는 값입니다. 도수의 상대적인 비율을 비교할 때 유용하지만 그 비율이 비슷한 경우에는 차이가 잘 구분되지 않습니다.
+
+p.48
+```{r}
+d1 <- data.frame(genre=c("sports", "strategy", "action", "shooting", "etc"),
+                 volume=c(27500, 11500, 6000, 3500, 1500))
+
+pct <- round(d1$volume / sum(d1$volume) * 100)
+# pct 데이터를 d1 데이터에 있는 volume 벡터의 백분율, 즉 해당 벡터를 전체의 합으로 나눈 값으로 정의합니다.
+
+head(pct)
+
+
+d2 <- data.frame(genre=c("sports", "strategy", "action", "shooting", "etc"),
+                volume=c(27500, 11500, 6000, 3500, 1500),
+                pct)
+head(d2)
+
+lbls <- paste(d2$genre," ", pct, "%", sep="")
+# paste() 함수 : paste함수는 나열된 원소 사이에 공백을 두고 결과값을 출력합니다. (p.s. paste0() 함수 : paste0함수는 나열된 원소 사이에 공백없이 출력합니다.) 
+# paste는 나열된 원소를 이어붙여서 결과값으로 제공합니다. 이 경우 결과값은 한 개입니다.
+# paste는 변수, rep, c로 묶인 원소들을 개별로 인식합니다.  이 경우 결과값의 개수는 paste에 나열된 원소의 개수입니다.
+
+# paste(d2$genre," ", pct, "%", sep="") : lbls에 d2 데이터의 genre, 여백, 퍼센트 숫자, 공백없이 %를 이어붙인 결과값을 출력합니다.
+
+pie(d2$volume, lbls, col=rainbow(length(lbls)), clockwise = TRUE, border = "White", main="Sales Volume per Genre")
+# pie() 함수 : d2데이터의 volume의 벡터로 파이차트를 그립니다. lbls의 시게방향으로 무지개색을 입히고 차트제목을 "sales Volume per Genre"로 설정합니다.
+
+# 그 외의 다양한 옵션들 : pie(x, labels = names(x), edges = 200, radius = 0.8, clockwise = FALSE, init.angle = if(clockwise) 90 else 0, density =NULL, angle = 45, col = NULL, border = NULL, lty = NULL, main = NULL, ….)
+```
+
+
+더욱 정밀한 수치를 비교하고자 할 때는 ‘막대그래프’를 사용합니다. 막대 그래프는 x축과 y축의 구분에 따라 수직/수평 막대그래프로 구분되고, 둘 이상의 데이터를 표현할 때 그 방법에 따라 분할/조각 막대그래프로 사용할 수 있습니다. 일반적으로 사용하는 수직 막대그래프는 x축에 범주를, y축에 도수를 나타냅니다.
+
+
+p.50
+```{r}
+d <- data.frame(field=c("A", "B", "C", "D", "E"),
+                volume=c(1000, 5000, 7500, 8000, 9500))
+head(d)
+
+barplot(d$volume)
+
+barplot(d$volume, names.arg=d$field,
+        col= "red",
+        border = NA,
+        xlab = "Field",
+        ylab = "Sales Volume ($)",
+        ylim = c(0, 10000),
+        main = "Sales Volume per Fields")
+
+```
+
+
+범주의 이름이 길 때는 수평 막대그래프를 사용합니다. 둘 이상의 데이터 집합을 표현할 때, 도수를 서로 비교하고자 한다면 분할된 범주의 막대그래프를, 도수와 퍼센트를 동시에 나타내고자 한다면 조각으로 나누어진 막대그래프를 사용합니다.
+
+하나의 범주적 데이터를 범위별 그룹으로 나누어 표현하고자 할 때는 ‘히스토그램’을 이용합니다. 히스토그램은 막대그래프와 거의 비슷하지만 두 가지 중요한 차이점이 있습니다. 하나는 막대의 면적이 도수에 비례한다는 것이고, 다른 하나는 막대 사이에 공간이 없다는 것입니다.
+
+
+p.61-62
+```{r}
+a <- sample(0:199, 5)
+b <- sample(200:399, 29)
+c <- sample(400:599, 56)
+d <- sample(600:799, 17)
+e <- sample(800:999, 3)
+crazymango <- c(a, b, c, d, e)
+head(crazymango)
+hist_crazymango <- hist(crazymango)
+hist_crazymango <- hist(crazymango, 
+                        breaks=5, ylim=c(0,60), 
+                        xlab="Grade", main="Crazymango",
+                        col="light blue", border="purple")
+
+```
+
+막대의 면적이 도수에 비례하기 때문에 도수의 밀도 개념이 존재합니다. 도수밀도는 특정 구간에 속한 값들의 집중도를 나타내며, 도수를 그룹의 폭으로 나눈 값입니다. 막대의 높이에 따라 높으면 고밀도, 낮으면 저밀도를 의미합니다. 
+
+범주적 데이터는 단어(word)와 정성(quality)을 다루며, 수치적 데이터는 숫자(number)와 정량(quantity)을 다룹니다.
+
+
+p.71-72 
+```{r}
+AngryBull <- data.frame(grade=c(0,1,2,3,4,5),
+                        width=c(1,1,1,1,1,1),
+                        density=c(10,30,50,30,10,10))
+AngryBull <- data.frame(AngryBull,
+                        frequency=c(AngryBull$width * AngryBull$density))
+head(AngryBull)
+hist(xlab=AngryBull$grade, ylab=AngryBull$density)
+
+```
+
+
+cf) p.61-62 자료를 이용한 도수밀도
+
+```{r}
+hist_crazymango <- hist(crazymango, 
+                        breaks=5,  
+                        xlab="Grade", main="Crazymango",
+                        col="light blue", border="purple", freq = FALSE)
+```
+
+
+
+마지막으로 특정 값까지 도수의 총합을 알고 싶을 때는 ’누적도수 그래프’를 사용합니다. 누적도수 그래프의 기울기를 통해 증가율을 한눈에 알아볼 수 있습니다. 선그래프는 전체적인 흐름 파악이 용이하며 시간의 흐름에 따른 경향을 나타낼 때 사용합니다.
+
+
+
+p.78 
+```{r}
+a1 <- sample(0:17, size=2000, replace=TRUE)
+a2 <- sample(18:24, size=2500, replace=TRUE)
+a3 <- sample(25:39, size=2000, replace=TRUE)
+a4 <- sample(40:54, size=2000, replace=TRUE)
+a5 <- sample(55:79, size=900, replace=TRUE)
+a6 <- sample(80:99, size=100, replace=TRUE)
+
+gamers <- c(a1, a2, a3, a4, a5, a6)
+
+hist_gamers <- hist(gamers,
+                    breaks=c(0,18,25,40,55,80,100))
+
+hist_test <- hist(cumsum(gamers))
+
+test <- axis(gamers, side = 2)
+
+
+
+hist_gamers2 <- hist(cumsum(length(gamers)),
+                     breaks=c(0,18,25,40,55,80,100))
+
+
+gamers <- data.frame(amount=c(a),
+        age=c("0-17", "18-24", "25-39", "40-54", "55-79", 80-99"))
+             
+
+
+install.packages("reshape")
+
+gamers_melt <- melt(gamers$amount, id.vars="age")
+```
+
+
+
+
+
+
