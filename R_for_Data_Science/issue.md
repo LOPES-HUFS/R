@@ -18,14 +18,14 @@ library(tidyverse)
     ##   method            from
     ##   read_xml.response xml2
 
-    ## ─ Attaching packages ───────────────────────────────────────────────────────────────────────── tidyverse 1.2.1 ─
+    ## ─ Attaching packages ───────── tidyverse 1.2.1 ─
 
     ## ✔ ggplot2 3.1.1       ✔ purrr   0.3.2  
     ## ✔ tibble  2.1.1       ✔ dplyr   0.8.0.1
     ## ✔ tidyr   0.8.3       ✔ stringr 1.4.0  
     ## ✔ readr   1.3.1       ✔ forcats 0.4.0
 
-    ## ─ Conflicts ─────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ─
+    ## ─ Conflicts ─────────── tidyverse_conflicts() ─
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
 
@@ -57,3 +57,14 @@ ggplot(data = mpg) +
 
 > 두 플롯은 동일한 x 변수, 동일한 y 변수를 포함하고, 동일한 데이터를 나타낸다. 그러나 둘은 같지 않다. 각 플롯은
 > 데이터를 표현하는 시각 객체가 다르다. ggplot2 문법으로는 두 플롯이 다른 지옴을 사용한다고 말한다.
+
+## 55쪽
+
+‘3.5.1 유용한 생성 함수’ 첫 번째 줄 번역이 내용은 이해되는데 첫 문장을 너무 쉽게 줄여서 변역한 것 같습니다. 원본과 책
+번역은 다음과 같습니다.
+
+> There are many functions for creating new variables that you can use
+> with `mutate()`. The key property is that the function must be
+> vectorised:
+
+책 번역: `mutate()`와 사용할 수 있는 변수 생성 함수가 많다. 이 함수들이 백터화되어야 한다는 것이 핵심이다.
