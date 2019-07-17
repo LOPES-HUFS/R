@@ -1,0 +1,46 @@
+---
+title: "HF Statistics 5"
+output: html_notebook
+---
+
+
+##이산확률분포 사용하기
+
+```{r}
+pic = c("dollar", "cherry", "lemon", "ETC")
+per = c(0.1, 0.2, 0.2, 0.5)
+
+d1 <- data.frame(pic, per)
+d1
+```
+
+
+
+```{r}
+combi = c("3dollars", "2dollars&1cherry","3cherrys", "3lemons", "NONE")
+prize = c(20, 15, 10, 5, 0)
+prob = c(0.1^3, 0.1^2*0.2*3, 0.2^3, 0.2^3, 1-(0.1^3+0.1^2*0.2*3+0.2^3+0.2^3))
+profit = prize -1 
+
+d2 <- data.frame(combi, prize, prob, profit)
+d2
+
+expec = prize * profit
+expec
+```
+
+
+
+s an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
