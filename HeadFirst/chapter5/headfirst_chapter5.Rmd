@@ -25,10 +25,23 @@ profit = prize -1
 d2 <- data.frame(combi, prize, prob, profit)
 d2
 
-expec = prize * profit
-expec
+exp.each = profit * prob
+exp.all = sum(exp.each)
+exp.all
+
+var.each = (profit - exp.all)^2 * prob
+var.all = sum(var.each)
+var.each
+var.all
 ```
 
+
+
+p.249
+
+```{r}
+
+```
 
 
 s an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 

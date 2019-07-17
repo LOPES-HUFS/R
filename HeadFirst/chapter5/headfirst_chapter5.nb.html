@@ -259,18 +259,54 @@ d1</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29tYmkgPSBjKFwiM2RvbGxhcnNcIiwgXCIyZG9sbGFycyYxY2hlcnJ5XCIsXCIzY2hlcnJ5c1wiLCBcIjNsZW1vbnNcIiwgXCJOT05FXCIpXG5wcml6ZSA9IGMoMjAsIDE1LCAxMCwgNSwgMClcbnByb2IgPSBjKDAuMV4zLCAwLjFeMiowLjIqMywgMC4yXjMsIDAuMl4zLCAxLSgwLjFeMyswLjFeMiowLjIqMyswLjJeMyswLjJeMykpXG5wcm9maXQgPSBwcml6ZSAtMSBcblxuZDIgPC0gZGF0YS5mcmFtZShjb21iaSwgcHJpemUsIHByb2IsIHByb2ZpdClcbmQyXG5cbmV4cGVjID0gcHJpemUgKiBwcm9maXRcbmV4cGVjXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29tYmkgPSBjKFwiM2RvbGxhcnNcIiwgXCIyZG9sbGFycyYxY2hlcnJ5XCIsXCIzY2hlcnJ5c1wiLCBcIjNsZW1vbnNcIiwgXCJOT05FXCIpXG5wcml6ZSA9IGMoMjAsIDE1LCAxMCwgNSwgMClcbnByb2IgPSBjKDAuMV4zLCAwLjFeMiowLjIqMywgMC4yXjMsIDAuMl4zLCAxLSgwLjFeMyswLjFeMiowLjIqMyswLjJeMyswLjJeMykpXG5wcm9maXQgPSBwcml6ZSAtMSBcbmQyIDwtIGRhdGEuZnJhbWUoY29tYmksIHByaXplLCBwcm9iLCBwcm9maXQpXG5kMlxuYGBgIn0= -->
 <pre class="r"><code>combi = c(&quot;3dollars&quot;, &quot;2dollars&amp;1cherry&quot;,&quot;3cherrys&quot;, &quot;3lemons&quot;, &quot;NONE&quot;)
 prize = c(20, 15, 10, 5, 0)
 prob = c(0.1^3, 0.1^2*0.2*3, 0.2^3, 0.2^3, 1-(0.1^3+0.1^2*0.2*3+0.2^3+0.2^3))
 profit = prize -1 
-
 d2 &lt;- data.frame(combi, prize, prob, profit)
-d2
-
-expec = prize * profit
-expec</code></pre>
+d2</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6NX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVNUVTdDUUJRZStnUFNSQ1RCRXhqaVNwb0lKaTRoVVplaWNjVjJXZ2FwRGgweUhSUlpHRHlEOFJEZXdjUTd1UGNNNmw3Um1mYTlSanJKOUh2djYvdWZkM0U4YUhzRGp4QmlFZHUxaUdWcjBiSDBwMFFjVWpVNEo4UnVHRmJqcGtaWFh6czFNRTRwYjdnMXB6Sm5ONHduV3FxbmZ6TzIzaDRLenFsTWR2ZkRNWlB5RHZpTlRxWW11UTUyb0ZjNm5FMUVqS3JUUCt1ZkZCSzZJYWNKNXN1ckdORlFDYW1sbGI0MVk5WTdJT25wK1lCTndHMVNQS2w5OXp3NGZmdDYvdW5PSDlYTDFmMTNkd2s2NHNmUjAwTzUrWjdINzBDOFBjQWR3SHFHcjU4WWZyMzhtRTRZbHUva1BZbEpFS0V5bGRHQzRRU21VZ1RZcEpaSGtTb0VyRXB4NjJOUTgycldNa3NMTDJYL0ZtYmxEYW1pL2tocWwyeGVhK0VxWXFvaTh3TEVhc0FLL0hjdXlRS3hOWXROOG1FckhNL2k2OWFoU1FBclE2Q2dFc1JCMmNsU09sZ1lMazJaeFpkUmpKMjduQWFNZzFMVFRhWTkrbm80c2NKT05KdjRTaWlLZGw0b09ETFpMcXorQUlrWG43MzRBZ0FBIn0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["combi"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["prize"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prob"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["profit"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"3dollars","2":"20","3":"0.001","4":"19"},{"1":"2dollars&1cherry","2":"15","3":"0.006","4":"14"},{"1":"3cherrys","2":"10","3":"0.008","4":"9"},{"1":"3lemons","2":"5","3":"0.008","4":"4"},{"1":"NONE","2":"0","3":"0.977","4":"-1"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[5]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZXhwLmVhY2ggPSBwcm9maXQgKiBwcm9iXG5leHAuYWxsID0gc3VtKGV4cC5lYWNoKVxuZXhwLmFsbFxuYGBgIn0= -->
+<pre class="r"><code>exp.each = profit * prob
+exp.all = sum(exp.each)
+exp.all</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIC0wLjc3XG4ifQ== -->
+<pre><code>[1] -0.77</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFyLmVhY2ggPSAocHJvZml0IC0gZXhwLmFsbCleMiAqIHByb2JcbnZhci5hbGwgPSBzdW0odmFyLmVhY2gpXG52YXIuZWFjaFxuYGBgIn0= -->
+<pre class="r"><code>var.each = (profit - exp.all)^2 * prob
+var.all = sum(var.each)
+var.each</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMzkwODUyOSAxLjMwODkxNzQgMC43NjM2MjMyIDAuMTgyMDIzMiAwLjA1MTY4MzNcbiJ9 -->
+<pre><code>[1] 0.3908529 1.3089174 0.7636232 0.1820232 0.0516833</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFyLmFsbFxuYGBgIn0= -->
+<pre class="r"><code>var.all</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIuNjk3MVxuIn0= -->
+<pre><code>[1] 2.6971</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFyLmFsbCA9ICB4IF4yIFxuYGBgIn0= -->
+<pre class="r"><code>var.all =  x ^2 </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IG9iamVjdCAneCcgbm90IGZvdW5kXG4ifQ== -->
+<pre><code>Error: object 'x' not found</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>p.249</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>s an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
@@ -288,7 +324,7 @@ expec</code></pre>
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhGIFN0YXRpc3RpY3MgNSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCg0KIyPsnbTsgrDtmZXrpaDrtoTtj6wg7IKs7Jqp7ZWY6riwDQoNCmBgYHtyfQ0KcGljID0gYygiZG9sbGFyIiwgImNoZXJyeSIsICJsZW1vbiIsICJFVEMiKQ0KcGVyID0gYygwLjEsIDAuMiwgMC4yLCAwLjUpDQoNCmQxIDwtIGRhdGEuZnJhbWUocGljLCBwZXIpDQpkMQ0KYGBgDQoNCg0KDQpgYGB7cn0NCmNvbWJpID0gYygiM2RvbGxhcnMiLCAiMmRvbGxhcnMmMWNoZXJyeSIsIjNjaGVycnlzIiwgIjNsZW1vbnMiLCAiTk9ORSIpDQpwcml6ZSA9IGMoMjAsIDE1LCAxMCwgNSwgMCkNCnByb2IgPSBjKDAuMV4zLCAwLjFeMiowLjIqMywgMC4yXjMsIDAuMl4zLCAxLSgwLjFeMyswLjFeMiowLjIqMyswLjJeMyswLjJeMykpDQpwcm9maXQgPSBwcml6ZSAtMSANCg0KZDIgPC0gZGF0YS5mcmFtZShjb21iaSwgcHJpemUsIHByb2IsIHByb2ZpdCkNCmQyDQoNCmV4cGVjID0gcHJpemUgKiBwcm9maXQNCmV4cGVjDQpgYGANCg0KDQoNCnMgYW4gW1IgTWFya2Rvd25dKGh0dHA6Ly9ybWFya2Rvd24ucnN0dWRpby5jb20pIE5vdGVib29rLiBXaGVuIHlvdSBleGVjdXRlIGNvZGUgd2l0aGluIHRoZSBub3RlYm9vaywgdGhlIHJlc3VsdHMgYXBwZWFyIGJlbmVhdGggdGhlIGNvZGUuIA0KDQpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIA0KDQpgYGB7cn0NCnBsb3QoY2FycykNCmBgYA0KDQpBZGQgYSBuZXcgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpJbnNlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ3RybCtBbHQrSSouDQoNCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ3RybCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLg0KDQpUaGUgcHJldmlldyBzaG93cyB5b3UgYSByZW5kZXJlZCBIVE1MIGNvcHkgb2YgdGhlIGNvbnRlbnRzIG9mIHRoZSBlZGl0b3IuIENvbnNlcXVlbnRseSwgdW5saWtlICpLbml0KiwgKlByZXZpZXcqIGRvZXMgbm90IHJ1biBhbnkgUiBjb2RlIGNodW5rcy4gSW5zdGVhZCwgdGhlIG91dHB1dCBvZiB0aGUgY2h1bmsgd2hlbiBpdCB3YXMgbGFzdCBydW4gaW4gdGhlIGVkaXRvciBpcyBkaXNwbGF5ZWQuDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkhGIFN0YXRpc3RpY3MgNSINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCg0KIyPsnbTsgrDtmZXrpaDrtoTtj6wg7IKs7Jqp7ZWY6riwDQoNCmBgYHtyfQ0KcGljID0gYygiZG9sbGFyIiwgImNoZXJyeSIsICJsZW1vbiIsICJFVEMiKQ0KcGVyID0gYygwLjEsIDAuMiwgMC4yLCAwLjUpDQoNCmQxIDwtIGRhdGEuZnJhbWUocGljLCBwZXIpDQpkMQ0KYGBgDQoNCg0KDQpgYGB7cn0NCmNvbWJpID0gYygiM2RvbGxhcnMiLCAiMmRvbGxhcnMmMWNoZXJyeSIsIjNjaGVycnlzIiwgIjNsZW1vbnMiLCAiTk9ORSIpDQpwcml6ZSA9IGMoMjAsIDE1LCAxMCwgNSwgMCkNCnByb2IgPSBjKDAuMV4zLCAwLjFeMiowLjIqMywgMC4yXjMsIDAuMl4zLCAxLSgwLjFeMyswLjFeMiowLjIqMyswLjJeMyswLjJeMykpDQpwcm9maXQgPSBwcml6ZSAtMSANCg0KZDIgPC0gZGF0YS5mcmFtZShjb21iaSwgcHJpemUsIHByb2IsIHByb2ZpdCkNCmQyDQoNCmV4cC5lYWNoID0gcHJvZml0ICogcHJvYg0KZXhwLmFsbCA9IHN1bShleHAuZWFjaCkNCmV4cC5hbGwNCg0KdmFyLmVhY2ggPSAocHJvZml0IC0gZXhwLmFsbCleMiAqIHByb2INCnZhci5hbGwgPSBzdW0odmFyLmVhY2gpDQp2YXIuZWFjaA0KdmFyLmFsbA0KYGBgDQoNCg0KDQpwLjI0OQ0KDQpgYGB7cn0NCg0KYGBgDQoNCg0KcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gDQoNClRyeSBleGVjdXRpbmcgdGhpcyBjaHVuayBieSBjbGlja2luZyB0aGUgKlJ1biogYnV0dG9uIHdpdGhpbiB0aGUgY2h1bmsgb3IgYnkgcGxhY2luZyB5b3VyIGN1cnNvciBpbnNpZGUgaXQgYW5kIHByZXNzaW5nICpDdHJsK1NoaWZ0K0VudGVyKi4gDQoNCmBgYHtyfQ0KcGxvdChjYXJzKQ0KYGBgDQoNCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDdHJsK0FsdCtJKi4NCg0KV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDdHJsK1NoaWZ0K0sqIHRvIHByZXZpZXcgdGhlIEhUTUwgZmlsZSkuDQoNClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4NCg==</div>
 
 
 
