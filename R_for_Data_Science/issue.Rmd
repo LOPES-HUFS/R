@@ -1,0 +1,39 @@
+---
+title: "R for Data Science"
+output: github_document
+---
+
+이 글은 R for Data Science의 한글 번역서에서 찾아낸 오타 그리고 제가 생각하기 에 틀린 부분을 정리하고자 만드는 문서입니다. 우선 문서를 만들기 위해서 `tidyverse`를 가져오겠습니다.
+
+```{r}
+library(tidyverse)
+```
+
+## 16쪽
+
+`1.6 기하 객체` 아래에 있는 두 플롯 중 첫번째 것(즉 왼쪽 것)이 잘못 들어 갔습니다. 17쪽에 있는 코드를 보면 왼쪽 플롯을 그리는 코드는 다음과 같습니다. 다음과 같이 나와야 합니다.
+
+```{r}
+ggplot(data = mpg) + 
+    geom_point(mapping = aes(x =displ, y = hwy))
+```
+
+오른쪽 플롯을 그린 코드는 다음과 같습니다. 이건 정확하게 나왔습니다.
+
+```{r}
+ggplot(data = mpg) + 
+    geom_smooth(mapping = aes(x =displ, y = hwy))
+```
+
+이렇게 그리고 보면, 16쪽에 쓰여진 다음 문장이 정확하게 이해됩니다. 아래 문장에서 `지옴(geoms)`이라는 것은 `geom_smooth`과 `geom_point`을 말하는 것 같습니다.
+
+> 두 플롯은 동일한 x 변수, 동일한 y 변수를 포함하고, 동일한 데이터를 나타낸다. 그러나 둘은 같지 않다. 각 플롯은 데이터를 표현하는 시각 객체가 다르다. ggplot2 문법으로는 두 플롯이 다른 지옴을 사용한다고 말한다.
+
+## 55쪽
+
+'3.5.1 유용한 생성 함수' 첫 번째 줄 번역이 내용은 이해되는데 첫 문장을 너무 쉽게 줄여서 변역한 것 같습니다. 원본과 책 번역은 다음과 같습니다.
+
+> There are many functions for creating new variables that you can use with `mutate()`. The key property is that the function must be vectorised:
+
+책 번역: `mutate()`와 사용할 수 있는 변수 생성 함수가 많다. 이 함수들이 백터화되어야 한다는 것이 핵심이다.
+

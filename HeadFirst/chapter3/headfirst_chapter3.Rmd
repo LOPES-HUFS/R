@@ -1,6 +1,6 @@
 ---
 title: "HF Statistics 3"
-output: html_notebook
+output: github_document
 ---
 
 # 3장. 변이와 분포 측정하기
@@ -21,13 +21,11 @@ chul
 min
 young
 
-
 d <- data.frame( Mean = c(mean(chul), mean(min), mean(young)),
                  Median = c(median(chul), median(min), median(young)),
                  Mode = c(which.max(chul), which.max(chul), which.max(chul)))
-d
 
-                             
+d
 ```
 
 다음 두 후보 선수 중에 어떤 선수를 선발해야 할까요. 
