@@ -1,0 +1,32 @@
+---
+title: "Pinenut Project"
+output: github_document
+---
+
+우선 라이브러리 셋팅을 한다.
+
+```{r}
+library(tidyverse)
+```
+
+다음으로 자료 입력을 한다. `read_csv()`을 이용한다.
+날짜가 잘 안 들어 왔기 때문에 `parse_date()`을 이용하여 잘 조절한다.
+
+```{r}
+pinenut.challenge <- read_csv("https://gist.githubusercontent.com/dialektike/a851a96238b4ae9baf57672a0d2ff0a1/raw/340310f11e92aef9e483431d07e8951cac2661c3/tae_woo.csv")
+pinenut.challenge ## 확인해 보면 날짜가 엉망이다.
+pinenut.challenge$date <- parse_date(pinenut.challenge$date, "%Y.%*%m.%*%d.")
+pinenut.challenge # 고친 것을 확인한다.
+```
+
+True 와 False 를 살펴 본다. 생각보다 False 가 많다.
+
+```{r}
+ggplot(data=pinenut.challenge) + stat_count(mapping=aes(x=try))
+```
+
+날짜별로 그려보자!
+
+```{r}
+ggplot(pinenut.challenge, aes(date, try)) + geom_point(aes(color = try))
+```
